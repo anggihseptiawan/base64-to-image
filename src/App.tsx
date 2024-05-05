@@ -48,6 +48,7 @@ function App() {
   }
 
   onMount(() => {
+    // @ts-ignore
     navigator.permissions.query({ name: "clipboard-write" }).then((result) => {
       if (result.state === "granted" || result.state === "prompt") {
         setIsHaveClipBoardSupport(true)
@@ -103,6 +104,7 @@ function App() {
           </div>
           <div class="w-full sm:w-1/2">
             {isHaveClipBoardSupport() && base64URLResult() && (
+              // @ts-ignore
               <Button class="mb-2" onClick={copyToClipBoard}>
                 {isCopied() ? "Copied!" : "Copy to Clipboard"}
               </Button>
